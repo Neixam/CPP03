@@ -31,6 +31,7 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
     *this = other;
+    std::cout << GREEN << "ClapTrap Copy Constructor " << _name << NEUTRAL << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
@@ -52,7 +53,7 @@ void ClapTrap::attack(const std::string &target)
         return;
     }
     _energyPoint--;
-    std::cout << _name << " attack " << target << " and lost " << _attackDamage << " hp" << std::endl;
+    std::cout << "ClapTrap" << _name << " attack " << target << " and lost " << _attackDamage << " hp" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -97,6 +98,21 @@ unsigned int ClapTrap::getEP() const
 unsigned int ClapTrap::getAD() const
 {
     return _attackDamage;
+}
+
+void ClapTrap::setHP(unsigned int hp)
+{
+    _hitPoint = hp;
+}
+
+void ClapTrap::setEP(unsigned int ep)
+{
+    _energyPoint = ep;
+}
+
+void ClapTrap::setAD(unsigned int ad)
+{
+    _attackDamage = ad;
 }
 
 std::ostream& operator<<(std::ostream& os, const ClapTrap& obj)

@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main()
 {
     {
-        ClapTrap tonny("Tonny");
+        ScavTrap tonny("Tonny");
         ClapTrap diego("Diego");
         ClapTrap toto("Toto");
         ClapTrap toto2(toto);
@@ -39,8 +40,8 @@ int main()
     }
     {
         ClapTrap tonny("Tonny");
-        ClapTrap baptiste("Baptiste");
-        ClapTrap coco = baptiste;
+        ScavTrap baptiste("Baptiste");
+        ScavTrap coco = baptiste;
 
         std::cout << coco << std::endl;
         for (int i = 0; tonny.getEP(); i++)
@@ -49,6 +50,11 @@ int main()
             baptiste.takeDamage(tonny.getAD());
         }
         tonny.beRepaired(25);
+        baptiste.guardGate();
+        std::cout << coco << std::endl;
+        baptiste.attack(coco.getName());
+        coco.takeDamage(baptiste.getAD());
+        std::cout << coco << std::endl;
     }
     return 0;
 }

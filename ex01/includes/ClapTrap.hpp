@@ -17,6 +17,7 @@
 class ClapTrap
 {
 public:
+    ClapTrap();
     ClapTrap(const std::string& name);
     ~ClapTrap();
     ClapTrap(const ClapTrap& other);
@@ -28,8 +29,10 @@ public:
     unsigned int    getHP() const;
     unsigned int    getEP() const;
     unsigned int    getAD() const;
+    void            setHP(unsigned int hp);
+    void            setEP(unsigned int ep);
+    void            setAD(unsigned int ad);
 private:
-    ClapTrap();
     std::string     _name;
     unsigned int    _hitPoint;
     unsigned int    _energyPoint;

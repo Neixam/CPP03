@@ -11,14 +11,14 @@
 # **************************************************************************** #
 
 # Variables
-CC		=	g++
+CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 IFLAGS	=	-I includes
 DFLAGS	=	-g -DDEBUG
 ifeq ($(findstring debug, $(MAKECMDGOALS)), debug)
 	CFLAGS	+=	$(DFLAGS)
 endif
-NAME	=	PhoneBook
+NAME	=	ClapTrap
 DEP_PATH=	deps/
 OBJ_PATH=	objs/
 SRC_PATH=	$(shell find srcs -type d)
