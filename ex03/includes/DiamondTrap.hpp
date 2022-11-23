@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ambouren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 18:06:57 by ambouren          #+#    #+#             */
-/*   Updated: 2022/11/15 18:06:58 by ambouren         ###   ########.fr       */
+/*   Created: 2022/11/23 14:25:43 by ambouren          #+#    #+#             */
+/*   Updated: 2022/11/23 14:25:46 by ambouren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
+#include <string>
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 public:
-    ~ScavTrap();
-    ScavTrap(const std::string& name);
-    ScavTrap(const ScavTrap& oth);
-    ScavTrap&   operator=(const ScavTrap& oth);
-    void        attack(const std::string& target);
-    void        guardGate();
+    ~DiamondTrap();
+    DiamondTrap(const std::string& name);
+    DiamondTrap(const DiamondTrap& oth);
+    DiamondTrap& operator=(const DiamondTrap& oth);
+    void    attack(const std::string& target);
+    void    whoAmI();
 private:
-    ScavTrap();
+    DiamondTrap();
+    std::string _name;
 };
 
-std::ostream&   operator<<(std::ostream& os, const ScavTrap& obj);
+
 #endif

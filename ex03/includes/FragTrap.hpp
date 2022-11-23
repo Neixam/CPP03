@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ambouren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 18:06:57 by ambouren          #+#    #+#             */
-/*   Updated: 2022/11/15 18:06:58 by ambouren         ###   ########.fr       */
+/*   Created: 2022/11/23 11:02:39 by ambouren          #+#    #+#             */
+/*   Updated: 2022/11/23 11:02:40 by ambouren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+#include <string>
+#include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 public:
-    ~ScavTrap();
-    ScavTrap(const std::string& name);
-    ScavTrap(const ScavTrap& oth);
-    ScavTrap&   operator=(const ScavTrap& oth);
+    ~FragTrap();
+    FragTrap(const std::string& name);
+    FragTrap(const FragTrap& oth);
+    FragTrap&   operator=(const FragTrap& oth);
     void        attack(const std::string& target);
-    void        guardGate();
-private:
-    ScavTrap();
+    void        highFivesGuys();
+    FragTrap();
 };
 
-std::ostream&   operator<<(std::ostream& os, const ScavTrap& obj);
+std::ostream&   operator<<(std::ostream& os, const FragTrap& obj);
 #endif
