@@ -16,7 +16,7 @@ const static std::string RED = "\033[31m";
 const static std::string GREEN = "\033[32m";
 const static std::string NEUTRAL = "\033[0m";
 
-DiamondTrap::DiamondTrap() :  FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap() :  ClapTrap(), FragTrap(), ScavTrap()
 {
     _name = ScavTrap::getName();
     ScavTrap::setHP(100);
@@ -29,7 +29,7 @@ DiamondTrap::~DiamondTrap()
     std::cout << RED << "DiamondTrap Destructor " << _name << NEUTRAL << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string &name) : FragTrap(name), ScavTrap(name)
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), FragTrap(name), ScavTrap(name)
 {
     _name = name;
     ScavTrap::setHP(100);
@@ -37,7 +37,7 @@ DiamondTrap::DiamondTrap(const std::string &name) : FragTrap(name), ScavTrap(nam
     std::cout << GREEN << "DiamondTrap Constructor with arg " << _name << NEUTRAL << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &oth) : FragTrap(oth), ScavTrap(oth)
+DiamondTrap::DiamondTrap(const DiamondTrap &oth) : ClapTrap(oth._name), FragTrap(oth._name), ScavTrap(oth._name)
 {
     *this = oth;
     _name = ScavTrap::getName();
@@ -62,3 +62,8 @@ void DiamondTrap::attack(const std::string &target)
     ScavTrap::attack(target);
 }
 
+std::ostream&   operator<<(std::ostream& os, const DiamondTrap& obj)
+{
+	return os << obj.getName() << " stat(HP=" << obj.getHP() << ", EP=" << obj.getEP() << ", AD="
+			  << obj.getAD() << ")";
+}

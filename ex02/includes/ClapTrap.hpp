@@ -34,7 +34,7 @@ public:
     void            setHP(unsigned int hp);
     void            setEP(unsigned int ep);
     void            setAD(unsigned int ad);
-private:
+protected:
     std::string     _name;
     unsigned int    _hitPoint;
     unsigned int    _energyPoint;

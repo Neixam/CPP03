@@ -31,6 +31,7 @@ private:
     DiamondTrap();
     std::string _name;
 };
+std::ostream&   operator<<(std::ostream& os, const DiamondTrap& obj);
 
 
 #endif

@@ -68,6 +68,7 @@ int main()
         DiamondTrap didier("Didier");
 
         didier.whoAmI();
+		std::cout << didier << std::endl;
         didier.attack("me");
     }
     return 0;
